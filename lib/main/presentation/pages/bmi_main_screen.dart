@@ -1,7 +1,7 @@
-import 'package:bmi/main/presentation/widgets/dialog_result.dart';
-import 'package:bmi/main/presentation/widgets/height_slider.dart';
-import 'package:bmi/main/presentation/widgets/male_female_selector.dart';
-import 'package:bmi/main/presentation/widgets/weight_age_selector.dart';
+import 'package:bmi_cal/main/presentation/widgets/dialog_result.dart';
+import 'package:bmi_cal/main/presentation/widgets/height_slider.dart';
+import 'package:bmi_cal/main/presentation/widgets/male_female_selector.dart';
+import 'package:bmi_cal/main/presentation/widgets/weight_age_selector.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,15 +16,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double height = 180;
   bool isMale = true;
-  int weight=50;
-  int age=21;
+  int weight = 50;
+  int age = 21;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF360536),
-        title: Center(child: Text(widget.title,style: const TextStyle(color: Colors.white),)),
+        title: Center(
+            child: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.white),
+        )),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -49,8 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: WeightAgeSelector(
                 onChange: (newWeight, newAge) {
-                  age=newAge;
-                  weight=newWeight;
+                  age = newAge;
+                  weight = newWeight;
                 },
               ),
             ),
@@ -67,9 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
       height: MediaQuery.of(context).size.height * 0.07,
       child: MaterialButton(
         onPressed: () {
-          showDialog(context: context, builder: (context){
-            return DialogResult(isMale: isMale, height: height, weight: weight,);
-          });
+          showDialog(
+              context: context,
+              builder: (context) {
+                return DialogResult(
+                  isMale: isMale,
+                  height: height,
+                  weight: weight,
+                );
+              });
         },
         color: Colors.greenAccent,
         child: const Text(
